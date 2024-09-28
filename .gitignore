@@ -1,0 +1,11 @@
+node_modules/
+logs/
+.env
+.idea
+.vscode
+.DS_Store
+!inputFiles/kved
+!inputFiles/type
+inputFiles/kved/*
+inputFiles/type/*
+*.sqlite

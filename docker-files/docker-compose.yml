@@ -1,0 +1,20 @@
+services:
+  filter-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: "filter-service:${VERSION}"
+    container_name: filter-service
+    ports:
+      - 8182:8182
+    restart: always
+    volumes:
+      - "/usr/local/servers/filter-service/logs:/app/filter-service/logs"
+      - "/usr/local/servers/filter-service/inputFiles/type:/usr/src/app/inputFiles/type"
+      - "/usr/local/servers/filter-service/inputFiles/kved:/usr/src/app/inputFiles/kved"
+    environment:
+      PORT: 8182
+      LOG_LEVEL: "info"
+      ENVIRONMENT: "PRODUCTION"
+      XLS_TYPE_PATH: "/usr/src/app/inputFiles/type"
+      XLS_KVED_PATH: "/usr/src/app/inputFiles/kved"
