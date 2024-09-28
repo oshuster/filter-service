@@ -1,17 +1,16 @@
 export const searchTypes = async (db, query) => {
   try {
-    console.log("query", query);
-    // Запит до бази даних для пошуку за типом і назвою
+    const normalizedQuery = query.toUpperCase();
+
     const searchQuery = `
       SELECT id, type, name
       FROM types
-      WHERE type LIKE ? OR name LIKE ?
+      WHERE name LIKE ? COLLATE NOCASE
     `;
 
-    // Виконуємо запит до бази даних з шаблоном пошуку
-    const results = db.prepare(searchQuery).all(`%${query}%`, `%${query}%`); // Використовуємо LIKE для пошуку за частковим збігом
+    const results = db.prepare(searchQuery).all(`%${normalizedQuery}%`);
 
-    // Формуємо масив з об'єктами у форматі [{id: id, type: type, name: name}]
+    // [{id: id, type: type, name: name}]
     const formattedResults = results.map((row) => ({
       id: row.id,
       type: row.type,
