@@ -4,8 +4,8 @@ logs/
 .idea
 .vscode
 .DS_Store
-!inputFiles/kved
+!inputFiles/katotg
 !inputFiles/type
-inputFiles/kved/*
+inputFiles/katotg/*
 inputFiles/type/*
 *.sqlite

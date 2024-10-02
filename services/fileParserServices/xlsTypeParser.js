@@ -10,7 +10,7 @@ export const xlsTypeParse = async (db, xlsDirectory) => {
     // Пошук файлів з розширенням .xls у вказаній директорії
     const files = fs
       .readdirSync(xlsDirectory)
-      .filter((file) => file.endsWith(".xls"));
+      .filter((file) => file.endsWith(".xlsx") || file.endsWith(".xls"));
 
     if (!files.length) {
       throw HttpError(400, "No XLS files found in the 'type' directory");
