@@ -11,10 +11,10 @@ services:
     volumes:
       - "/usr/local/servers/filter-service/logs:/app/filter-service/logs"
       - "/usr/local/servers/filter-service/inputFiles/type:/usr/src/app/inputFiles/type"
-      - "/usr/local/servers/filter-service/inputFiles/kved:/usr/src/app/inputFiles/katotg"
+      - "/usr/local/servers/filter-service/inputFiles/katotg:/usr/src/app/inputFiles/katotg"
     environment:
       PORT: 8182
       LOG_LEVEL: "info"
       ENVIRONMENT: "PRODUCTION"
       XLS_TYPE_PATH: "/usr/src/app/inputFiles/type"
-      XLS_KVED_PATH: "/usr/src/app/inputFiles/katotg"
+      XLS_KATOTG_PATH: "/usr/src/app/inputFiles/katotg"
