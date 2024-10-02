@@ -13,8 +13,8 @@ export const initializeDatabase = async () => {
     const dropTypesSchemaQuery = `DROP TABLE IF EXISTS types;`;
     db.exec(dropTypesSchemaQuery);
 
-    const dropKvedSchemaQuery = `DROP TABLE IF EXISTS kved;`;
-    db.exec(dropKvedSchemaQuery);
+    const dropKatotgSchemaQuery = `DROP TABLE IF EXISTS katotg;`;
+    db.exec(dropKatotgSchemaQuery);
 
     // Створюємо таблицю types
     const createTypesTableQuery = `
@@ -26,16 +26,17 @@ export const initializeDatabase = async () => {
     `;
     db.exec(createTypesTableQuery);
 
-    // Створюємо таблицю kved
-    const createKvedTableQuery = `
-      CREATE TABLE IF NOT EXISTS kved (
+    // Створюємо таблицю katotg
+    const createKatotgTableQuery = `
+      CREATE TABLE IF NOT EXISTS katotg (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        code TEXT NOT NULL,
-        description TEXT NOT NULL,
-        info TEXT
+        katotg TEXT NOT NULL,
+        dps_name TEXT NOT NULL,
+        adress TEXT NOT NULL,
+        dps_code TEXT NOT NULL
       );
     `;
-    db.exec(createKvedTableQuery);
+    db.exec(createKatotgTableQuery);
 
     await parseXlsAndSaveToDb(db);
 
