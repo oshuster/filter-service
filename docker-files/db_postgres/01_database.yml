@@ -15,7 +15,7 @@ services:
     environment:
       - TZ=Europe/Kiev
       - POSTGRES_USER=gdzapp
-      - POSTGRES_PASSWORD=GdzApp2024
+      - POSTGRES_PASSWORD=
       - POSTGRES_DB=gdzapp
     ports:
       - "5432:5432"
