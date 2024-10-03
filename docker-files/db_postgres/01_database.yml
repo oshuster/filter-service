@@ -1,0 +1,21 @@
+#networks:
+#  gdz-net:
+#    external: true
+
+services:
+  postgres:
+    container_name: postgresql
+    image: postgres:17.0-alpine3.20
+    restart: always
+    #    networks:
+    #      - gdz-net
+    volumes:
+      - /usr/local/postgresql/pgdata:/var/lib/postgresql/data
+
+    environment:
+      - TZ=Europe/Kiev
+      - POSTGRES_USER=gdzapp
+      - POSTGRES_PASSWORD=GdzApp2024
+      - POSTGRES_DB=gdzapp
+    ports:
+      - "5432:5432"
